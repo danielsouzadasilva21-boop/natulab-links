@@ -33,10 +33,13 @@
         }
 
         .logo {
-            font-size: 48px;
-            font-weight: bold;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo img {
+            max-width: 200px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
         }
 
         .subtitle {
@@ -114,6 +117,7 @@
             justify-content: space-between;
             margin-bottom: 10px;
             transition: all 0.3s ease;
+            word-break: break-all;
         }
 
         .link-box:hover {
@@ -163,6 +167,9 @@
             font-weight: bold;
             color: #856404;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .credential-item {
@@ -257,26 +264,29 @@
             margin-left: 10px;
         }
 
-        @media (max-width: 768px) {
-            .content {
-                grid-template-columns: 1fr;
-            }
+        .uptime-badge {
+            background: #4caf50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
 
-            .header {
-                margin-bottom: 30px;
-            }
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            color: #1565c0;
+        }
 
-            .logo {
-                font-size: 36px;
-            }
-
-            .card {
-                padding: 25px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
+        .info-box strong {
+            display: block;
+            margin-bottom: 5px;
         }
 
         .button-group {
@@ -323,36 +333,46 @@
             transform: translateY(-2px);
         }
 
-        .uptime-badge {
-            background: #4caf50;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
-        }
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
 
-        .info-box {
-            background: #e3f2fd;
-            border-left: 4px solid #2196f3;
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 15px;
-            color: #1565c0;
-        }
+            .header {
+                margin-bottom: 30px;
+            }
 
-        .info-box strong {
-            display: block;
-            margin-bottom: 5px;
+            .logo {
+                font-size: 36px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .link-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .copy-btn {
+                margin-left: 0;
+                margin-top: 10px;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">🧪 NATULAB</div>
+            <div class="logo">
+                <img src="logo.png" alt="Natulab Logo">
+            </div>
             <div class="subtitle">Capacitação Operador Farmacêutico</div>
             <div class="tagline">Plataforma Profissional de Treinamento</div>
             <div class="status-badge">✓ Online 24/7</div>
@@ -370,8 +390,8 @@
                 <div class="link-section">
                     <div class="link-label">Acesso Público (Sem Autenticação)</div>
                     <div class="link-box">
-                        <span class="link-text">https://seu-projeto.vercel.app/</span>
-                        <button class="copy-btn" onclick="copyToClipboard('https://seu-projeto.vercel.app/', this)">Copiar</button>
+                        <span class="link-text" id="operador-link">https://3000-ia4uux13z26g7ek2se4vl-2402dab1.us1.manus.computer/</span>
+                        <button class="copy-btn" onclick="copyToClipboard('https://3000-ia4uux13z26g7ek2se4vl-2402dab1.us1.manus.computer/', this)">Copiar</button>
                     </div>
                 </div>
 
@@ -383,9 +403,7 @@
                 <div class="uptime-badge">⏱️ Uptime 99.95%</div>
 
                 <div class="button-group">
-                    <a href="https://seu-projeto.vercel.app/" class="btn btn-primary" target="_blank">
-                        🚀 Acessar Plataforma
-                    </a>
+                    <a href="https://3000-ia4uux13z26g7ek2se4vl-2402dab1.us1.manus.computer/" class="btn btn-primary" target="_blank">🚀 Acessar Plataforma</a>
                 </div>
             </div>
 
@@ -400,8 +418,8 @@
                 <div class="link-section">
                     <div class="link-label">Acesso Restrito (Com Autenticação)</div>
                     <div class="link-box">
-                        <span class="link-text">https://seu-projeto.vercel.app/supervisor-login</span>
-                        <button class="copy-btn" onclick="copyToClipboard('https://seu-projeto.vercel.app/supervisor-login', this)">Copiar</button>
+                        <span class="link-text" id="supervisor-link">https://3000-ia4uux13z26g7ek2se4vl-2402dab1.us1.manus.computer/supervisor-login</span>
+                        <button class="copy-btn" onclick="copyToClipboard('https://3000-ia4uux13z26g7ek2se4vl-2402dab1.us1.manus.computer/supervisor-login', this)">Copiar</button>
                     </div>
                 </div>
 
@@ -416,9 +434,7 @@
                 <div class="uptime-badge">⏱️ Uptime 99.95%</div>
 
                 <div class="button-group">
-                    <a href="https://seu-projeto.vercel.app/supervisor-login" class="btn btn-secondary" target="_blank">
-                        🔑 Acessar Painel
-                    </a>
+                    <a href="https://3000-ia4uux13z26g7ek2se4vl-2402dab1.us1.manus.computer/supervisor-login" class="btn btn-secondary" target="_blank">🔑 Acessar Painel</a>
                 </div>
             </div>
         </div>
@@ -466,11 +482,12 @@
             </div>
         </div>
 
+        <!-- Footer -->
         <div class="footer">
             <div class="footer-text">
                 <strong>Natulab - Capacitação Operador Farmacêutico</strong><br>
-                Plataforma de Treinamento Profissional | Hospedado no Vercel<br>
-                <small>© 2026 - Todos os direitos reservados</small>
+                Plataforma de Treinamento Profissional | Hospedado no Manus<br>
+                © 2026 - Todos os direitos reservados
             </div>
         </div>
     </div>
@@ -487,14 +504,10 @@
                     button.classList.remove('copied');
                 }, 2000);
             }).catch(err => {
-                alert('Erro ao copiar: ' + err);
+                console.error('Erro ao copiar:', err);
+                alert('Erro ao copiar o link');
             });
         }
-
-        // Log de acesso
-        console.log('🎓 Bem-vindo à Natulab - Capacitação Operador Farmacêutico');
-        console.log('📖 Links permanentes e credenciais disponíveis acima');
-        console.log('✓ Uptime: 99.95% | Hospedagem: Vercel');
     </script>
 </body>
 </html>
