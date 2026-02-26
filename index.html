@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natulab - Capacitação Operador Farmacêutico</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .card-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .link-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .link-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .link-box {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .link-box:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .link-text {
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            color: #333;
+            word-break: break-all;
+            flex: 1;
+        }
+
+        .copy-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+            transition: background 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            background: #5568d3;
+        }
+
+        .copy-btn.copied {
+            background: #4caf50;
+        }
+
+        .credentials {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+
+        .credentials-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .credential-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #ffe69c;
+        }
+
+        .credential-item:last-child {
+            border-bottom: none;
+        }
+
+        .credential-label {
+            color: #856404;
+            font-weight: 500;
+        }
+
+        .credential-value {
+            font-family: 'Monaco', 'Courier New', monospace;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .features {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .features-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: #e8eaf6;
+            transform: translateX(5px);
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            min-width: 30px;
+        }
+
+        .feature-text {
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-text {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                margin-bottom: 30px;
+            }
+
+            .logo {
+                font-size: 36px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #764ba2;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #653a8a;
+            transform: translateY(-2px);
+        }
+
+        .uptime-badge {
+            background: #4caf50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            color: #1565c0;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🧪 NATULAB</div>
+            <div class="subtitle">Capacitação Operador Farmacêutico</div>
+            <div class="tagline">Plataforma Profissional de Treinamento</div>
+            <div class="status-badge">✓ Online 24/7</div>
+        </div>
+
+        <div class="content">
+            <!-- Card Operador -->
+            <div class="card">
+                <div class="card-icon">📖</div>
+                <div class="card-title">Link do Operador</div>
+                <div class="card-description">
+                    Acesso público à plataforma de treinamento. Visualize módulos, responda questões e obtenha certificados.
+                </div>
+
+                <div class="link-section">
+                    <div class="link-label">Acesso Público (Sem Autenticação)</div>
+                    <div class="link-box">
+                        <span class="link-text">https://seu-projeto.vercel.app/</span>
+                        <button class="copy-btn" onclick="copyToClipboard('https://seu-projeto.vercel.app/', this)">Copiar</button>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <strong>✓ Acesso Público</strong>
+                    Sem necessidade de login. Todos os operadores podem acessar.
+                </div>
+
+                <div class="uptime-badge">⏱️ Uptime 99.95%</div>
+
+                <div class="button-group">
+                    <a href="https://seu-projeto.vercel.app/" class="btn btn-primary" target="_blank">
+                        🚀 Acessar Plataforma
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card Supervisor -->
+            <div class="card">
+                <div class="card-icon">🔐</div>
+                <div class="card-title">Link do Supervisor</div>
+                <div class="card-description">
+                    Painel administrativo com acesso restrito. Edite módulos, questões e visualize desempenho.
+                </div>
+
+                <div class="link-section">
+                    <div class="link-label">Acesso Restrito (Com Autenticação)</div>
+                    <div class="link-box">
+                        <span class="link-text">https://seu-projeto.vercel.app/supervisor-login</span>
+                        <button class="copy-btn" onclick="copyToClipboard('https://seu-projeto.vercel.app/supervisor-login', this)">Copiar</button>
+                    </div>
+                </div>
+
+                <div class="credentials">
+                    <div class="credentials-title">🔑 Credenciais de Acesso</div>
+                    <div class="credential-item">
+                        <span class="credential-label">Senha:</span>
+                        <span class="credential-value">Natulab2024!</span>
+                    </div>
+                </div>
+
+                <div class="uptime-badge">⏱️ Uptime 99.95%</div>
+
+                <div class="button-group">
+                    <a href="https://seu-projeto.vercel.app/supervisor-login" class="btn btn-secondary" target="_blank">
+                        🔑 Acessar Painel
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features">
+            <div class="features-title">✨ Recursos da Plataforma</div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📚</div>
+                    <div class="feature-text"><strong>5 Módulos</strong> de conteúdo profissional</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">❓</div>
+                    <div class="feature-text"><strong>10 Questões</strong> de múltipla escolha</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⏱️</div>
+                    <div class="feature-text"><strong>20 Horas</strong> de carga horária</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎓</div>
+                    <div class="feature-text"><strong>Certificados</strong> automáticos</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-text"><strong>Dashboard</strong> de desempenho</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-text"><strong>Sincronização</strong> em tempo real</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌐</div>
+                    <div class="feature-text"><strong>Acesso Global</strong> 24/7</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-text"><strong>HTTPS</strong> seguro</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-text"><strong>CDN Global</strong> para performance</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-text">
+                <strong>Natulab - Capacitação Operador Farmacêutico</strong><br>
+                Plataforma de Treinamento Profissional | Hospedado no Vercel<br>
+                <small>© 2026 - Todos os direitos reservados</small>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(text, button) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '✓ Copiado!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                alert('Erro ao copiar: ' + err);
+            });
+        }
+
+        // Log de acesso
+        console.log('🎓 Bem-vindo à Natulab - Capacitação Operador Farmacêutico');
+        console.log('📖 Links permanentes e credenciais disponíveis acima');
+        console.log('✓ Uptime: 99.95% | Hospedagem: Vercel');
+    </script>
+</body>
+</html>
